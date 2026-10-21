@@ -1,0 +1,241 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Weather API",
+        "description": "A simple Laravel Weather API.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Local development server"
+        }
+    ],
+    "paths": {
+        "/api/weather": {
+            "get": {
+                "tags": [
+                    "Weather"
+                ],
+                "summary": "Get weather for all cities",
+                "operationId": "getAllWeather",
+                "responses": {
+                    "200": {
+                        "description": "Weather data retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "city": {
+                                                        "type": "string",
+                                                        "example": "Lahore"
+                                                    },
+                                                    "temperature": {
+                                                        "type": "integer",
+                                                        "example": 29
+                                                    },
+                                                    "condition": {
+                                                        "type": "string",
+                                                        "example": "Partly Cloudy"
+                                                    },
+                                                    "humidity": {
+                                                        "type": "integer",
+                                                        "example": 65
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Weather"
+                ],
+                "summary": "Echo username and password",
+                "description": "Accepts a username and password and returns the same values.",
+                "operationId": "echoCredentials",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "john_doe"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "MyPassword123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Returns the submitted username and password",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "username": {
+                                            "type": "string",
+                                            "example": "john_doe"
+                                        },
+                                        "password": {
+                                            "type": "string",
+                                            "example": "MyPassword123"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Invalid username. Access denied.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid username. Access denied."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/weather/{city}": {
+            "get": {
+                "tags": [
+                    "Weather"
+                ],
+                "summary": "Get weather for a specific city",
+                "operationId": "getWeatherByCity",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "Name of the city",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Lahore"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Weather data retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "city": {
+                                                    "type": "string",
+                                                    "example": "Lahore"
+                                                },
+                                                "temperature": {
+                                                    "type": "integer",
+                                                    "example": 29
+                                                },
+                                                "condition": {
+                                                    "type": "string",
+                                                    "example": "Partly Cloudy"
+                                                },
+                                                "humidity": {
+                                                    "type": "integer",
+                                                    "example": 65
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Weather data not found"
+                    }
+                }
+            }
+        },
+        "/api/weather/health": {
+            "get": {
+                "tags": [
+                    "Weather"
+                ],
+                "summary": "Check whether the Weather API is running",
+                "operationId": "checkWeatherApiHealth",
+                "responses": {
+                    "200": {
+                        "description": "Weather API is running",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Weather API is running."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Weather",
+            "description": "Weather"
+        }
+    ]
+}
