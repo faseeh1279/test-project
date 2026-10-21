@@ -15,6 +15,22 @@ use OpenApi\Attributes as OA;
     description: 'Local development server'
 )]
 
+// #[OA\SecurityScheme(
+//     securityScheme: 'bearerAuth',
+//     type: 'http',
+//     scheme: 'bearer',
+//     bearerFormat: 'JWT',
+//     description: 'Enter your JWT access token'
+// )]
+
+#[OA\SecurityScheme(
+    securityScheme: 'apiKeyAuth',
+    type: 'apiKey',
+    in: 'header',
+    name: 'X-API-TOKEN',
+    description: 'Enter your website API token'
+)]
+
 class OpenApiSpec
 {
 }
