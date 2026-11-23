@@ -1,52 +1,101 @@
-# 🧪 Laravel Test Project (Sandbox)
+# {{Project Name}}
 
-Welcome to **test-project** — a dedicated Laravel 13 sandbox environment built for experimenting, studying complex theories, troubleshooting bugs, and testing packages without cluttering or risking production codebases.
+> One-line description of what this app does and who it's for.
 
-## 🎯 Purpose
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-red)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3-blue)](https://php.net)
 
-Trying out unfamiliar packages, authentication flows, complex database queries, or experimental architecture inside a real project often leaves behind stray files, messy migrations, and unnecessary dependencies.
+## Table of Contents
 
-This repository serves as a **zero-consequence playground** to:
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
+- [Documentation](#documentation)
+- [Project Structure](#project-structure)
+- [Common Commands](#common-commands)
+- [Team & Support](#team--support)
 
-* **Test Theories & Concepts:** Explore Eloquent relationships, queues, events, service containers, and design patterns.
-* **Experiment with Auth & Access Control:** Compare and test token flows (`laravel/sanctum` vs. `php-open-source-saver/jwt-auth`) alongside role/permission setups (`spatie/laravel-permission`).
-* **Prototype & Document APIs:** Generate and verify OpenAPI/Swagger specs using `darkaonline/l5-swagger`.
-* **Reproduce & Solve Problems:** Isolate tricky bugs or edge cases in a clean environment before applying fixes to live applications.
+## Overview
 
-## 📚 Documentation
+Short paragraph (3-5 sentences): what problem the project solves, main features, and the main users (admins, customers, etc.).
 
-* [**Environment Setup (`SETUP.md`)**](SETUP.md) — Prerequisites, one-command Composer setup, dev server scripts, and sandbox reset commands.
-* [**Configurations & Packages (`CONFIGURATIONS.md`)**](CONFIGURATIONS.md) — Package-specific setup notes for Sanctum, JWT Auth, Spatie Permission, L5-Swagger, and custom `.env` tweaks.
+**Key features**
 
-## 🛠️ Current Stack (from `composer.json`)
+- Feature one
+- Feature two
+- Feature three
 
-* **Core:** PHP `^8.3` | Laravel Framework `^13.17`
-* **Authentication & Authorization:** `laravel/sanctum` (`^4.0`), `php-open-source-saver/jwt-auth` (`^2.10`), `spatie/laravel-permission` (`^8.5`)
-* **API Documentation:** `darkaonline/l5-swagger` (`^11.2`)
-* **Dev & Debugging Tools:** `laravel/pail` (`^1.2.5`), `laravel/pao` (`^1.0.6`), `laravel/pint` (`^1.27`), `laravel/tinker` (`^3.0`), `phpunit/phpunit` (`^12.5.12`)
+## Tech Stack
 
-## 🚀 Quick Start
+| Layer          | Technology                      |
+| -------------- | ------------------------------- |
+| Backend        | Laravel 11, PHP 8.3             |
+| Frontend       | Blade / Livewire / Vue / React  |
+| Database       | MySQL 8 / PostgreSQL 16         |
+| Cache / Queue  | Redis                           |
+| Web server     | Nginx + PHP-FPM                 |
+| Build tooling  | Vite, Node 20                   |
+| Testing        | Pest / PHPUnit                  |
 
-Bootstrap the project in one step using the built-in Composer script:
+## Quick Start
+
+For the full walkthrough see [DEVELOPMENT.md](DEVELOPMENT.md). The short version:
 
 ```bash
-composer setup
+git clone {{repo-url}} {{project-folder}}
+cd {{project-folder}}
+
+composer install
+npm install
+
+cp .env.example .env
+php artisan key:generate
+
+# Edit .env with your local DB credentials, then:
+php artisan migrate --seed
+
+# Run the app (two terminals, or use `composer dev` if configured)
+php artisan serve
+npm run dev
 ```
 
-Start the development environment:
+App runs at http://localhost:8000.
 
-```bash
-composer dev
+**Default local login** (seeded): `admin@example.com` / `password`
+
+## Documentation
+
+| File                               | Purpose                                              |
+| ---------------------------------- | ---------------------------------------------------- |
+| [README.md](README.md)             | Project overview and quick start (you are here)      |
+| [DEVELOPMENT.md](DEVELOPMENT.md)   | Detailed local setup, workflow, testing, conventions |
+| [DEPLOYMENT.md](DEPLOYMENT.md)     | Server requirements, provisioning and deploy process |
+
+## Project Structure
+
+```
+app/            Application code (Models, Http, Services, Jobs...)
+config/         Configuration files
+database/       Migrations, factories, seeders
+resources/      Views, JS, CSS
+routes/         web.php, api.php, console.php
+tests/          Feature and unit tests
 ```
 
-*(See [SETUP.md](SETUP.md) for manual steps, SQLite configuration, and cleanup commands.)*
+Add notes about any custom folders, e.g. `app/Services` for business logic.
 
-## 📝 Experiment Log
+## Common Commands
 
-Keep a quick running log of what you are testing or have already explored:
+| Task                    | Command                          |
+| ----------------------- | -------------------------------- |
+| Run tests               | `php artisan test`               |
+| Fix code style          | `./vendor/bin/pint`              |
+| Fresh DB with seed data | `php artisan migrate:fresh --seed` |
+| Clear all caches        | `php artisan optimize:clear`     |
+| Run queue worker        | `php artisan queue:work`         |
 
-* [ ] *Current Experiment:* (e.g., Comparing Sanctum SPA/token auth vs. JWT guards)
-* [ ] *Planned:* (e.g., Role/permission caching behavior with `spatie/laravel-permission`)
-* [x] *Completed:* Initial Laravel 13 sandbox setup with Auth & Swagger packages
+## Team & Support
 
-> **Note:** Code inside this repository is experimental and not intended for production deployment.
+- **Maintainer:** {{name}} ({{email}})
+- **Issue tracker:** {{link}}
+- **Chat channel:** {{Slack/Discord/WhatsApp link}}
