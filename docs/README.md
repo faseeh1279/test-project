@@ -1,58 +1,52 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧪 Laravel Test Project (Sandbox)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Welcome to **test-project** — a dedicated Laravel 13 sandbox environment built for experimenting, studying complex theories, troubleshooting bugs, and testing packages without cluttering or risking production codebases.
 
-## About Laravel
+## 🎯 Purpose
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Trying out unfamiliar packages, authentication flows, complex database queries, or experimental architecture inside a real project often leaves behind stray files, messy migrations, and unnecessary dependencies.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This repository serves as a **zero-consequence playground** to:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+* **Test Theories & Concepts:** Explore Eloquent relationships, queues, events, service containers, and design patterns.
+* **Experiment with Auth & Access Control:** Compare and test token flows (`laravel/sanctum` vs. `php-open-source-saver/jwt-auth`) alongside role/permission setups (`spatie/laravel-permission`).
+* **Prototype & Document APIs:** Generate and verify OpenAPI/Swagger specs using `darkaonline/l5-swagger`.
+* **Reproduce & Solve Problems:** Isolate tricky bugs or edge cases in a clean environment before applying fixes to live applications.
 
-## Learning Laravel
+## 📚 Documentation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* [**Environment Setup (`SETUP.md`)**](SETUP.md) — Prerequisites, one-command Composer setup, dev server scripts, and sandbox reset commands.
+* [**Configurations & Packages (`CONFIGURATIONS.md`)**](CONFIGURATIONS.md) — Package-specific setup notes for Sanctum, JWT Auth, Spatie Permission, L5-Swagger, and custom `.env` tweaks.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Current Stack (from `composer.json`)
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+* **Core:** PHP `^8.3` | Laravel Framework `^13.17`
+* **Authentication & Authorization:** `laravel/sanctum` (`^4.0`), `php-open-source-saver/jwt-auth` (`^2.10`), `spatie/laravel-permission` (`^8.5`)
+* **API Documentation:** `darkaonline/l5-swagger` (`^11.2`)
+* **Dev & Debugging Tools:** `laravel/pail` (`^1.2.5`), `laravel/pao` (`^1.0.6`), `laravel/pint` (`^1.27`), `laravel/tinker` (`^3.0`), `phpunit/phpunit` (`^12.5.12`)
 
-## Agentic Development
+## 🚀 Quick Start
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+Bootstrap the project in one step using the built-in Composer script:
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+composer setup
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Start the development environment:
 
-## Contributing
+```bash
+composer dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+*(See [SETUP.md](SETUP.md) for manual steps, SQLite configuration, and cleanup commands.)*
 
-## Code of Conduct
+## 📝 Experiment Log
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Keep a quick running log of what you are testing or have already explored:
 
-## Security Vulnerabilities
+* [ ] *Current Experiment:* (e.g., Comparing Sanctum SPA/token auth vs. JWT guards)
+* [ ] *Planned:* (e.g., Role/permission caching behavior with `spatie/laravel-permission`)
+* [x] *Completed:* Initial Laravel 13 sandbox setup with Auth & Swagger packages
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> **Note:** Code inside this repository is experimental and not intended for production deployment.
